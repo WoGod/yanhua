@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>May20th</title>
+    <style>
+        span{color:white;
+        font-weight:bold;
+        font-size:36px;
+        margin-left:20px}
+        body{
+            background-image: url(水果篮子.png);
+            background-size:cover
+        }
+        .wz{
+            line-height: 120px;
+            text-align: center;
+            font-size:40px;
+            color:white
+        }
+        .loadEffect{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin: 0 auto;
+            margin-top:120px;
+        }
+        .loadEffect span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: lightgreen;
+            position: absolute;
+            -webkit-animation: load 1.04s ease infinite;
+        }
+        @-webkit-keyframes load{
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0.2;
+            }
+        }
+        .loading{
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            margin-top:100px;
+            position: relative;
+            -webkit-animation: load 3s linear infinite;
+        }
+        .loading div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .loading span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #99CC66;
+            position: absolute;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+            -webkit-animation: changeBgColor 3s ease infinite;
+        }
+        @-webkit-keyframes load{
+            0%{
+                -webkit-transform: rotate(0deg);
+            }
+            33.3%{
+                -webkit-transform: rotate(120deg);
+            }
+            66.6%{
+                -webkit-transform: rotate(240deg);
+            }
+            100%{
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes changeBgColor{
+            0%,100%{
+                background: #99CC66;
+            }
+            33.3%{
+                background: #FFFF66;
+            }
+            66.6%{
+                background: #FF6666;
+            }
+        }
+        .loading div:nth-child(2){
+            -webkit-transform: rotate(120deg);
+        }
+        .loading div:nth-child(3){
+            -webkit-transform: rotate(240deg);
+        }
+        .loading div:nth-child(2) span{
+            -webkit-animation-delay: 1s;
+        }
+        .loading div:nth-child(3) span{
+            -webkit-animation-delay: 2s;
+        }
+     </style>
+    <script>
+        window.onload = function(){
+          var oSpan = document.getElementById('day');
+          var num = 5;
+          var timer = setInterval(function(){//创建定时器
+           oSpan.innerHTML = --num;
+           if(num==4){
+            document.getElementById("day").style.color="red"
+           }
+           if(num==3){
+            document.getElementById("day").style.color="red"
+           }
+           if(num==2){
+            document.getElementById("day").style.color="white"
+           }
+           if(num==1){
+            document.getElementById("day").style.color="red"
+           }
+           if(num == 0){
+            document.getElementById("day").style.color="white"
+                clearInterval(timer);//清除定时器
+                location.href="index.html"
+           }
+          },1000);
+     };
+     </script>
+</head>
+<body>
+    <div class="wz">
+        请耐心等待哦<span id="day">5</span>
+    </div>
+    <div class="loading">
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+</div>
+</body>
+</html>
